@@ -1,0 +1,16 @@
+<div class="home-container">
+  <div class="container">
+      
+      <div class="question-container">
+          <h2 class="question-number">Question {{ currentQuestionIndex + 1 }}</h2>
+          <p class="question-text">{{ questions[currentQuestionIndex].text }}</p>
+          <div *ngFor="let option of questions[currentQuestionIndex].options">
+              <label class="option-label">
+                  <input type="radio" [(ngModel)]="selectedOption" [value]="option">
+                  <span class="option-text">{{ option }}</span>
+              </label>
+          </div>
+          <button [disabled]="selectedOption === undefined" (click)="nextQuestion()" class="next-button">Next</button>
+      </div>
+  </div>
+</div>
